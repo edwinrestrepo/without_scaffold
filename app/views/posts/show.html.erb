@@ -1,0 +1,29 @@
+<h1>Post Information</h1>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @post.author %>
+</p>
+
+<p>
+  <strong>Publish date:</strong>
+  <%= @post.publish_date %>
+</p>
+
+<p>
+  <strong>Publish?:</strong>
+  <%= @post.publish %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @post.text %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-success', remote: true  %>
+<%= link_to 'Back', posts_path, class: 'btn btn-primary'  %>

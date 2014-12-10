@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>Listing posts</h1>
+
+  <table class="table">
+    <thead>
+      <div class="row">
+        <div class="col-sm-1">
+          <strong>Title</strong>
+        </div>
+        <div class="col-sm-1">
+          <strong>Author</strong>
+        </div>
+        <div class="col-sm-2">
+          <strong>Publish date</strong>
+        </div>
+        <div class="col-sm-1">
+          <strong>Publish?</strong>
+        </div>
+        <div class="col-sm-4">
+          <strong>Text</strong>
+        </div>
+      </div>
+    </thead>
+
+    <tbody>
+      <td>
+      <% @posts.each do |post| %>
+        <tr>
+          <div class="row">
+            <div class="col-sm-1">
+              <%= post.title %>
+            </div>
+            <div class="col-sm-1">
+              <%= post.author %>
+            </div>
+            <div class="col-sm-2">
+              <%= post.publish_date %>
+            </div>
+            <div class="col-sm-1">
+              <%= post.publish? %>
+            </div>
+            <div class="col-sm-4">
+              <%= post.text %>
+            </div>
+            <div class="col-sm-3">
+              <%= link_to 'Show', post, class: 'btn btn-primary'  %>
+              <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-success', remote: true %>
+              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %>
+            </div>
+          </div>
+          <p></p>
+          <p></p>
+        </tr>  
+      <% end %>
+      </td>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Post', new_post_path, class: 'btn btn-primary', remote: true   %>  
+</div>
